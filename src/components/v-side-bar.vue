@@ -8,17 +8,17 @@
         <div class="v-side-bar__list">
             <a class="v-side-bar__list-link" href="#">Shirts</a>
             <a class="v-side-bar__list-link" href="#">Dresses</a>
-            <a class="v-side-bar__list-link v-side-bar__dropdown-switch" href="#">Jeans <i
+            <a @click="toggleDropdown" class="v-side-bar__list-link v-side-bar__dropdown-switch" href="#">Jeans <i
                     class="fa fa-caret-down"/></a>
-            <div class="v-side-bar__dropdown-box">
+            <div v-if="dropdownIsVisible" class="v-side-bar__dropdown-box">
                 <a class="v-side-bar__list-link" href="#">
-                    <i class="fa fa-caret-right v-side-bar__dropdown-icon"/> Skinny</a>
+                    <i class="fa fa-caret-right v-side-bar__dropdown-icon margin-right"/> Skinny</a>
                 <a class="v-side-bar__list-link" href="#">
-                    <i class="fa fa-caret-right v-side-bar__dropdown-icon"/> Relaxed</a>
+                    <i class="fa fa-caret-right v-side-bar__dropdown-icon margin-right"/> Relaxed</a>
                 <a class="v-side-bar__list-link" href="#">
-                    <i class="fa fa-caret-right v-side-bar__dropdown-icon"/> Bootcut</a>
+                    <i class="fa fa-caret-right v-side-bar__dropdown-icon margin-right"/> Bootcut</a>
                 <a class="v-side-bar__list-link" href="#">
-                    <i class="fa fa-caret-right v-side-bar__dropdown-icon"/> Straight</a>
+                    <i class="fa fa-caret-right v-side-bar__dropdown-icon margin-right"/> Straight</a>
             </div>
             <a class="v-side-bar__list-link" href="#">Jackets</a>
             <a class="v-side-bar__list-link" href="#">Gymwear</a>
@@ -32,9 +32,21 @@
 </template>
 
 <script lang="ts">
-    export default {
-        name: "v-side-bar"
-    }
+    import {defineComponent} from 'vue';
+
+    export default defineComponent({
+        name: 'v-side-bar',
+        data() {
+            return {
+                dropdownIsVisible: false
+            }
+        },
+        methods: {
+            toggleDropdown() {
+                this.dropdownIsVisible = !this.dropdownIsVisible
+            }
+        }
+    })
 </script>
 
 <style lang="scss">
@@ -102,7 +114,6 @@
 
             &-icon {
                 display: none;
-                margin-right: $margin;
             }
         }
 

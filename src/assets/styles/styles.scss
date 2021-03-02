@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-body{
+body {
   font-size: 15px;
   line-height: 1.5;
 }
@@ -15,15 +15,44 @@ body, h1, h2, h3, h4, h5, h6, {
   font-family: "Montserrat", sans-serif;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
-.container{
+.container {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.color-black{
+.color-black {
   color: $black;
 }
+
+.margin-right {
+  margin-right: $margin;
+}
+
+.button {
+  border: none;
+  display: inline-block;
+  padding: 8px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+  font-size: 18px;
+
+  &:hover{
+    color: $black !important;
+    background-color: #ccc !important;
+  }
+}
+
+.p-margin {
+  margin: $p-margin 0;
+}
+
