@@ -1,20 +1,27 @@
 <template>
     <div class="container" id="app">
         <v-side-bar></v-side-bar>
-        <v-catalog></v-catalog>
+        <v-header></v-header>
+        <router-view v-slot="{ Component }">
+            <component :is="Component" @event-test="$emit('new-test-event')"/>
+        </router-view>
     </div>
 </template>
 
 <script lang="ts">
     import vSideBar from './components/v-side-bar.vue'
-    import vCatalog from './views/v-catalog.vue'
+    import vMainPage from './views/v-main-page.vue'
     import {Vue, Options} from "vue-class-component";
+    import vHeader from "@/components/v-header.vue";
 
     @Options(
         {
             name: 'app',
             components: {
-                vSideBar, vCatalog
+                vSideBar,
+                vHeader,
+                vMainPage,
+
             }
         }
     )
@@ -23,7 +30,7 @@
             return {}
         }
 
-        mounted(){
+        mounted() {
             this.$store.dispatch('product/fetchProducts')
             //@ts-ignore
             window.store = this.$store.state

@@ -1,6 +1,5 @@
 <template>
-    <div class="v-catalog">
-        <v-header/>
+    <div class="v-main-page contentLeftMargin">
         <v-top-image/>
         <v-products/>
     </div>
@@ -8,14 +7,12 @@
 
 <script lang="ts">
     import {defineComponent} from "vue";
-    import vHeader from '../components/v-header.vue';
     import vTopImage from '../components/v-top-image.vue';
     import vProducts from '../components/v-products.vue';
 
     export default defineComponent({
-        name: "v-catalog",
+        name: "v-main-page",
         components: {
-            vHeader,
             vTopImage,
             vProducts
         }
@@ -23,7 +20,7 @@
 </script>
 
 <style lang="scss">
-    .v-catalog {
-        margin-left: 250px;
+    .v-main-page {
+
     }
 </style>

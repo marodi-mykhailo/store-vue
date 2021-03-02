@@ -1,5 +1,5 @@
 <template>
-    <header class="v-header">
+    <header class="v-header contentLeftMargin">
         <p class="v-header__left">Jeans</p>
         <p class="v-header__right">
             <i class="fa fa-shopping-cart margin-right"/>
@@ -44,6 +44,4 @@
             cursor: pointer;
         }
     }
-
-
 </style>

@@ -46,7 +46,7 @@ a {
   white-space: nowrap;
   font-size: 18px;
 
-  &:hover{
+  &:hover {
     color: $black !important;
     background-color: #ccc !important;
   }
@@ -56,3 +56,6 @@ a {
   margin: $p-margin 0;
 }
 
+.contentLeftMargin {
+  margin-left: $bigLeftMargin;
+}
