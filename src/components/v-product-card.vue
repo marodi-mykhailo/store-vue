@@ -20,22 +20,17 @@
 </template>
 
 <script lang="ts">
+    import {Vue, Component, Prop, Emit} from "vue-property-decorator";
+    import {ProductDataType} from "@/store/types";
 
-    import {Options, Vue} from "vue-class-component";
-    import {GetDataForCardType} from "@/store/modules/product";
+    @Component({})
+    export default class VProductCard extends Vue {
+        @Prop() readonly productData!: ProductDataType
+        @Prop() readonly isAddedToCart!: boolean
 
-    class VProductCardProps {
-        productData!: GetDataForCardType
-        isAddedToCart!: boolean
-    }
-
-    @Options({
-        name: "v-product-card",
-        emits: ['addToCart']
-    })
-    export default class VProductCard extends Vue.with(VProductCardProps) {
+        @Emit()
         addToCart() {
-            this.$emit('addToCart', this.productData.id)
+            return this.productData.id
         }
     }
 </script>

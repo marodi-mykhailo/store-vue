@@ -1,22 +1,25 @@
 <template>
     <div class="v-main-page contentLeftMargin">
-        <v-top-image/>
-        <v-products/>
+        <v-top-image></v-top-image>
+        <v-products></v-products>
+        <vProducts></vProducts>
     </div>
 </template>
 
 <script lang="ts">
-    import {defineComponent} from "vue";
     import vTopImage from '../components/v-top-image.vue';
     import vProducts from '../components/v-products.vue';
+    import {Vue, Component} from "vue-property-decorator";
 
-    export default defineComponent({
-        name: "v-main-page",
+    @Component({
         components: {
             vTopImage,
             vProducts
         }
     })
+    export default class VMainPage extends Vue {
+
+    }
 </script>
 
 <style lang="scss">

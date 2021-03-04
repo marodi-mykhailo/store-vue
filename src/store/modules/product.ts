@@ -1,17 +1,11 @@
 // initial state
-import {ProductType, RootState} from "@/store/types";
+import {ProductDataType, ProductDataForCartType, ProductType, RootStateType} from "@/store/types";
 import {ActionTree, GetterTree, Module, MutationTree} from "vuex";
 import {SET_PRODUCTS} from "@/store/mutation-types";
 import {storeAPI} from "@/api/api";
 
 export interface ProductStoreType {
     products: ProductType[]
-}
-
-export type GetDataForCardType = {
-    id: number,
-    productName: string,
-    price: string
 }
 
 const state: ProductStoreType = {
@@ -24,7 +18,7 @@ const mutations: MutationTree<ProductStoreType> = {
     }
 }
 
-const actions: ActionTree<ProductStoreType, RootState> = {
+const actions: ActionTree<ProductStoreType, RootStateType> = {
     fetchProducts({commit}): void {
         storeAPI.getProducts().then(res => {
             if (res) {
@@ -34,18 +28,26 @@ const actions: ActionTree<ProductStoreType, RootState> = {
     }
 }
 
-const getters: GetterTree<ProductStoreType, RootState> = {
-    getDataForCard(state): GetDataForCardType[] {
+const getters: GetterTree<ProductStoreType, RootStateType> = {
+    getDataForCard(state): ProductDataType[] {
         return state.products.map(item => ({
             id: item.id,
             productName: item.product_name,
             price: item.price
         }))
+    },
+    getDataForCart(state): ProductDataForCartType[] {
+        return state.products.map(item => ({
+            id: item.id,
+            productName: item.product_name,
+            price: item.price,
+            shortDescription: item.short_description
+        }))
     }
 }
 
 
-export const product: Module<ProductStoreType, RootState> = {
+export const product: Module<ProductStoreType, RootStateType> = {
     namespaced: true,
     state,
     actions,

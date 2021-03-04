@@ -10,11 +10,15 @@
 </template>
 
 <script lang="ts">
-    import {defineComponent} from 'vue'
 
-    export default defineComponent({
+    import {Vue, Component} from "vue-property-decorator";
+
+    @Component({
         name: 'v-top-image'
+
     })
+    export default class VTopImage extends Vue {
+    }
 </script>
 
 <style lang="scss">

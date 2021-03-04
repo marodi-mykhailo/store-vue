@@ -2,7 +2,9 @@
     <nav class="v-side-bar">
         <div class="v-side-bar__logo">
             <h3 class="v-side-bar__logo-text">
-                <b>LOGO</b>
+                <b>
+                    <router-link to="/main">LOGO</router-link>
+                </b>
             </h3>
         </div>
         <div class="v-side-bar__list">
@@ -32,21 +34,19 @@
 </template>
 
 <script lang="ts">
-    import {defineComponent} from 'vue';
 
-    export default defineComponent({
+    import {Vue, Component} from "vue-property-decorator";
+
+    @Component({
         name: 'v-side-bar',
-        data() {
-            return {
-                dropdownIsVisible: false
-            }
-        },
-        methods: {
-            toggleDropdown() {
-                this.dropdownIsVisible = !this.dropdownIsVisible
-            }
-        }
     })
+    export default class VSideBar extends Vue {
+        dropdownIsVisible = false
+
+        toggleDropdown() {
+            this.dropdownIsVisible = !this.dropdownIsVisible
+        }
+    }
 </script>
 
 <style lang="scss">

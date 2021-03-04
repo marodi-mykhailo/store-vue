@@ -4,54 +4,44 @@
             <p class="v-products__top-count">8 items</p>
         </div>
         <div class="v-products__list">
-            <template v-for="item in cardInfo"
-                      :key="item.id">
-                <v-product-card :product-data="item"
-                                @add-to-cart="this.addToCart"
-                                :isAddedToCart="this.isAddedToCart(item.id)"
-                />
-            </template>
+            <v-product-card v-for="item in cardInfo"
+                            :key="item.id"
+                            :product-data="item"
+                            @add-to-cart="addToCart"
+                            :isAddedToCart="isAddedToCart(item.id)"
+            />
         </div>
     </div>
 </template>
 
 <script lang="ts">
     import vProductCard from './v-product-card.vue'
-    import {mapActions, mapGetters} from 'vuex'
-    import {Options, Vue} from "vue-class-component";
-    import {GetDataForCardType} from "@/store/modules/product";
-    import {CartProductType} from "@/store/types";
+    import {CartProductType, ProductDataType, ProductDataForCartType} from "@/store/types";
+    import {Vue, Component} from "vue-property-decorator";
+    import {Action, Getter, namespace} from "vuex-class";
+    import {CartStateType} from "@/store/modules/cart";
 
-    @Options({
-        name: "v-products",
+    // const Products = namespace('modules/product')
+    // const Cart = namespace('modules/cart')
+
+    @Component({
         components: {
             vProductCard
-        },
-        computed: {
-            ...mapGetters('product', {
-                cardInfo: 'getDataForCard'
-            }),
-            ...mapGetters('cart', {
-                cartData: 'getCartData'
-            }),
-
-        },
-        methods: {
-            ...mapActions('cart', [
-                'setToCart'
-            ]),
-            addToCart(id: number) {
-                this.setToCart(id)
-            },
-
         }
     })
     export default class VProducts extends Vue {
-        cardInfo!: GetDataForCardType[]
-        cartData!: CartProductType[]
+        // @Products.Getter("getDataForCard") cardInfo!: ProductDataType[]
+        @Getter("product/getDataForCart") cartItemInfo!: ProductDataForCartType[]
+        @Getter("product/getDataForCard") cardInfo!: ProductDataType[]
+        @Getter("cart/getCartData") cartData!: CartStateType
 
-        data() {
-            return {}
+        // todo: ask why i must use ! and how to delete undefined from types ////
+        @Action("cart/setToCart") setToCart!: (product: ProductDataForCartType | undefined) => void
+
+
+        addToCart(id: number) {
+            const product = this.cartItemInfo.find((item: ProductDataForCartType) => item.id === id)
+            this.setToCart(product)
         }
 
         isAddedToCart(id: number) {

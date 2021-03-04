@@ -1,4 +1,4 @@
-export interface RootState {
+export interface RootStateType {
 }
 
 export interface CartProductType {
@@ -13,4 +13,18 @@ export interface ProductType {
     image: string
     price: string
     company: string
+}
+
+export interface ProductDataType {
+    id: number,
+    productName: string
+    price: string
+}
+
+export interface ProductDataForCartType extends ProductDataType {
+    shortDescription: string
+}
+
+export interface CartItemType extends ProductDataForCartType {
+    count: number
 }

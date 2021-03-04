@@ -1,13 +1,13 @@
-import {createRouter, createWebHistory, RouteRecordRaw} from "vue-router";
-import Home from "../views/Home.vue";
 import vMainPage from '../views/v-main-page.vue'
 import vCartPage from "@/views/v-cart-page.vue";
+import VueRouter from "vue-router";
+import Vue from "vue";
 
 const NotFound = {
     template: '<div>NotFound</div>'
 }
 
-const routes: Array<RouteRecordRaw> = [
+const routes = [
     {
         path: '/',
         alias: '/main',
@@ -27,9 +27,10 @@ const routes: Array<RouteRecordRaw> = [
 
 ];
 
-const router = createRouter({
-    history: createWebHistory(process.env.BASE_URL),
+Vue.use(VueRouter)
+
+const router = new VueRouter({
     routes
-});
+})
 
 export default router;

@@ -2,18 +2,24 @@
     <header class="v-header contentLeftMargin">
         <p class="v-header__left">Jeans</p>
         <p class="v-header__right">
-            <i class="fa fa-shopping-cart margin-right"/>
+            <router-link to="cart"><i class="fa fa-shopping-cart margin-right"/></router-link>
             <i class="fa fa-search"/>
         </p>
     </header>
 </template>
 
 <script lang="ts">
-    import {defineComponent} from "vue";
 
-    export default defineComponent({
+
+    import {Vue, Component} from "vue-property-decorator";
+
+    @Component({
         name: "v-header"
+
     })
+    export default class VHeader extends Vue {
+
+    }
 </script>
 
 <style lang="scss">
