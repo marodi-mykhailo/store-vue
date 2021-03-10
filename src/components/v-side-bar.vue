@@ -37,9 +37,15 @@
                 <router-link class="v-side-bar__list-link" to="Blazers">Blazers</router-link>
                 <router-link class="v-side-bar__list-link" to="Shoes">Shoes</router-link>
             </div>
-            <router-link class="v-side-bar__list-link color-black" to="/Contact">Contact</router-link>
-            <router-link class="v-side-bar__list-link color-black" to="/Newsletter">Newsletter</router-link>
-            <router-link class="v-side-bar__list-link color-black" to="/Subscribe">Subscribe</router-link>
+            <router-link class="v-side-bar__list-link color-black"
+                         to="/Contact">Contact
+            </router-link>
+            <div class="v-side-bar__list-link color-black"
+                         @click="toggleModal">Newsletter
+            </div>
+            <router-link class="v-side-bar__list-link color-black"
+                         to="/Subscribe">Subscribe
+            </router-link>
         </nav>
         <div class="overlay"
              :class="{'d-block': isOpen}"
@@ -59,6 +65,7 @@
     export default class VSideBar extends Vue {
         @Getter("sideBar/getSideBarStatus") isOpen!: boolean
         @Action("sideBar/closeSideBar") closeSideBar!: () => void
+        @Action("app/toggleModal") toggleModal!: () => void
         dropdownIsVisible = false
 
         toggleDropdown() {

@@ -3,6 +3,8 @@
         <v-mobile-header></v-mobile-header>
         <v-header></v-header>
         <v-side-bar></v-side-bar>
+        <v-modal v-show="isModalStatus"></v-modal>
+
         <div class="contentLeftMargin">
             <keep-alive>
                 <router-view></router-view>
@@ -19,6 +21,7 @@
 
         </div>
 
+
         <!--        <router-view v-slot="{ Component }">-->
         <!--            <component :is="Component" @event-test="$emit('new-test-event')"/>-->
         <!--        </router-view>-->
@@ -29,13 +32,15 @@
     import VSideBar from './components/v-side-bar.vue'
     import vHeader from "@/components/v-header.vue";
     import {Vue, Component} from "vue-property-decorator";
-    import {Action} from "vuex-class";
+    import {Action, Getter} from "vuex-class";
     import VMobileHeader from "@/components/v-mobile-header.vue";
     import VSubscribe from "@/components/v-subscribe.vue";
     import VFooter from "@/components/v-footer.vue";
+    import VModal from "@/components/v-modal.vue";
 
     @Component({
         components: {
+            VModal,
             VFooter,
             VSubscribe,
             VMobileHeader,
@@ -47,6 +52,7 @@
         @Action("product/fetchProducts") fetchProducts!: () => void
         @Action("app/setDesktop") setDesktop!: () => void
         @Action("app/setMobile") setMobile!: () => void
+        @Getter("app/getModalStatus") isModalStatus!: boolean
 
         mounted() {
             const setDesktop = this.setDesktop;
@@ -67,10 +73,7 @@
     }
 
 
-    // todo: шоб відкривалася фотка в корзині,
-    //todo: шоб силка була з корзини,
     // todo:пофіксити сіде бар,
-    // todo:модалку зробити,
     // todo:поправити струкртуру
 </script>
 

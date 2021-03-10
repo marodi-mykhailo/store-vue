@@ -15,6 +15,10 @@ body, h1, h2, h3, h4, h5, h6, {
   font-family: "Montserrat", sans-serif;
 }
 
+h2 {
+  font-size: 30px;
+}
+
 h4 {
   font-size: 20px;
 }
@@ -78,18 +82,29 @@ a {
   margin: 0;
 }
 
-.mb-0{
+.mb-0 {
   margin-bottom: 0;
 }
 
-.hover-opacity{
-  &:hover{
+.hover-opacity {
+  &:hover {
     opacity: .6;
   }
 }
 
-.text-justify{
+.text-justify {
   text-align: justify;
+}
+
+
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0)
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @import "media";

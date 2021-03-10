@@ -7,7 +7,10 @@
             />
         </div>
         <div class="v-cart-item__content">
-            <div class="v-cart-item__content-title">{{itemData.productName}}</div>
+            <div class="v-cart-item__content-title"
+                 @click="toItemPage"
+            >{{itemData.productName}}
+            </div>
             <p class="v-cart-item__content-description">{{itemData.shortDescription}}</p>
             <div class="v-cart-item__content-price">{{itemData.price}}</div>
             <div class="v-cart-item__quantity">
@@ -33,6 +36,7 @@
                 <i class="fas fa-trash-alt"></i>
             </span> Delete
         </button>
+        <hr/>
     </div>
 </template>
 
@@ -59,6 +63,11 @@
         @Emit("deleteItemFromCart")
         deleteItemFromCart() {
             return this.itemData.id
+        }
+
+
+        toItemPage() {
+            router.push({name: 'productItem', params: {productId: this.itemData.id + ""}})
         }
 
         get sum() {
@@ -93,6 +102,7 @@
                 font-size: $large_font_size;
                 font-weight: bold;
                 text-decoration: underline red;
+                cursor: pointer;
             }
 
             &-description {
@@ -153,6 +163,7 @@
             padding: $cart-item-content_padding;
             margin: 0 10px;
             text-align: center;
+            font-size: 18px;
         }
     }
 
