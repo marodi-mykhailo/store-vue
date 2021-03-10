@@ -1,5 +1,5 @@
 // initial state
-import {ProductDataType, ProductDataForCartType, ProductType, RootStateType} from "@/store/types";
+import {ProductDataType, ProductDataForCartType, ProductType, RootStateType, ProductItemType} from "@/store/types";
 import {ActionTree, GetterTree, Module, MutationTree} from "vuex";
 import {SET_PRODUCTS} from "@/store/mutation-types";
 import {storeAPI} from "@/api/api";
@@ -33,7 +33,8 @@ const getters: GetterTree<ProductStoreType, RootStateType> = {
         return state.products.map(item => ({
             id: item.id,
             productName: item.product_name,
-            price: item.price
+            price: item.price,
+            image: item.image
         }))
     },
     getDataForCart(state): ProductDataForCartType[] {
@@ -41,8 +42,29 @@ const getters: GetterTree<ProductStoreType, RootStateType> = {
             id: item.id,
             productName: item.product_name,
             price: item.price,
-            shortDescription: item.short_description
+            shortDescription: item.short_description,
+            image: item.image
         }))
+    },
+    getProductItemData: (state: ProductStoreType) => (productId: number): ProductItemType | undefined => {
+        const product = state.products.find(item => item.id === productId)
+        if (product) {
+            return {
+                id: product.id,
+                productName: product.product_name,
+                price: product.price,
+                description: product.description,
+                image: product.image
+            }
+        } else {
+            return {
+                id: 2,
+                productName: "misha",
+                price: "200",
+                description: "adadadada",
+                image: "dasasdasd"
+            }
+        }
     }
 }
 

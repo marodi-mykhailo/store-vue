@@ -1,7 +1,7 @@
 <template>
     <div class="v-products">
         <div class="v-products__top">
-            <p class="v-products__top-count">8 items</p>
+            <p class="v-products__top-count">{{cardInfo.length}} items</p>
         </div>
         <div class="v-products__list">
             <v-product-card v-for="item in cardInfo"
@@ -18,11 +18,8 @@
     import vProductCard from './v-product-card.vue'
     import {CartProductType, ProductDataType, ProductDataForCartType} from "@/store/types";
     import {Vue, Component} from "vue-property-decorator";
-    import {Action, Getter, namespace} from "vuex-class";
+    import {Action, Getter} from "vuex-class";
     import {CartStateType} from "@/store/modules/cart";
-
-    // const Products = namespace('modules/product')
-    // const Cart = namespace('modules/cart')
 
     @Component({
         components: {
@@ -30,7 +27,6 @@
         }
     })
     export default class VProducts extends Vue {
-        // @Products.Getter("getDataForCard") cardInfo!: ProductDataType[]
         @Getter("product/getDataForCart") cartItemInfo!: ProductDataForCartType[]
         @Getter("product/getDataForCard") cardInfo!: ProductDataType[]
         @Getter("cart/getCartData") cartData!: CartStateType

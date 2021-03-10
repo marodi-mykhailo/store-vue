@@ -1,8 +1,10 @@
 <template>
     <div class="v-cart-item">
         <div class="v-cart-item__image-wrapper">
-            <img class="v-cart-item__image-img" :src="itemData.image || require('@/assets/images/jeans1.jpg')"
-                 alt="cart-image"/>
+            <img class="v-cart-item__image-img"
+                 :src="itemData.image || require('@/assets/images/jeans1.jpg')"
+                 alt="cart-image"
+            />
         </div>
         <div class="v-cart-item__content">
             <div class="v-cart-item__content-title">{{itemData.productName}}</div>
@@ -38,6 +40,7 @@
     import {Vue, Component, Prop, Emit} from "vue-property-decorator";
     import {CartItemType} from "@/store/types";
     import {getNumberFromString} from "@/services/getNumberFromString";
+    import router from "@/router";
 
     @Component
     export default class VCartItem extends Vue {

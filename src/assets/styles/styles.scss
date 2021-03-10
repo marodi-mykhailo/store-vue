@@ -15,8 +15,13 @@ body, h1, h2, h3, h4, h5, h6, {
   font-family: "Montserrat", sans-serif;
 }
 
+h4 {
+  font-size: 20px;
+}
+
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 .container {
@@ -39,12 +44,10 @@ a {
   vertical-align: middle;
   overflow: hidden;
   text-decoration: none;
-  color: inherit;
   background-color: inherit;
   text-align: center;
   cursor: pointer;
   white-space: nowrap;
-  font-size: 18px;
 
   &:hover {
     color: $black !important;
@@ -59,3 +62,34 @@ a {
 .contentLeftMargin {
   margin-left: $bigLeftMargin;
 }
+
+.d-block {
+  display: block !important;
+}
+
+.input {
+  width: 100%;
+  padding: $padding/2;
+  border: 1px solid #ccc;
+  font-size: inherit;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.mb-0{
+  margin-bottom: 0;
+}
+
+.hover-opacity{
+  &:hover{
+    opacity: .6;
+  }
+}
+
+.text-justify{
+  text-align: justify;
+}
+
+@import "media";

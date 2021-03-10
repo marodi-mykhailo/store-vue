@@ -1,8 +1,7 @@
 <template>
-    <div class="v-main-page contentLeftMargin">
+    <div class="v-main-page">
         <v-top-image></v-top-image>
         <v-products></v-products>
-        <vProducts></vProducts>
     </div>
 </template>
 

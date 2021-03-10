@@ -1,10 +1,11 @@
 <template>
     <header class="v-header contentLeftMargin">
         <p class="v-header__left">Jeans</p>
-        <p class="v-header__right">
-            <router-link to="cart"><i class="fa fa-shopping-cart margin-right"/></router-link>
+        <div class="v-header__right">
+            <i class="fa fa-shopping-cart margin-right"
+               @click="toCart"/>
             <i class="fa fa-search"/>
-        </p>
+        </div>
     </header>
 </template>
 
@@ -12,12 +13,22 @@
 
 
     import {Vue, Component} from "vue-property-decorator";
+    import router from "@/router";
 
     @Component({
         name: "v-header"
 
     })
     export default class VHeader extends Vue {
+
+        get title() {
+            return this.$route.path.replace("/", "")
+        }
+
+        toCart() {
+            router.push({path: '/cart'})
+        }
+
 
     }
 </script>

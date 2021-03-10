@@ -1,7 +1,11 @@
 <template>
     <div class="product-card">
         <div class="product-card__wrapper">
-            <img class="product-card__wrapper-img" src="../assets/images/jeans1.jpg" alt="product-cart-img"/>
+            <img class="product-card__wrapper-img"
+                 :src="productData.image || require('@/assets/images/jeans1.jpg')"
+                 alt="product-cart-img"
+                 @click="toItemPage"
+            />
             <span class="product-card__wrapper-mark">New</span>
             <span v-show="this.isAddedToCart"
                   class="product-card__wrapper-mark added">Added</span>
@@ -12,7 +16,9 @@
                 >Buy now <i class="fa fa-shopping-cart"/></button>
             </div>
         </div>
-        <p class="product-card-text p-margin">{{productData.productName}}
+        <p class="product-card-text p-margin">
+            <router-link :to="{name: 'productItem', params: {productId: productData.id}}">
+                {{productData.productName}}</router-link>
             <br/>
             <b>{{productData.price}}</b>
         </p>
@@ -22,6 +28,7 @@
 <script lang="ts">
     import {Vue, Component, Prop, Emit} from "vue-property-decorator";
     import {ProductDataType} from "@/store/types";
+    import router from "@/router";
 
     @Component({})
     export default class VProductCard extends Vue {
@@ -32,6 +39,11 @@
         addToCart() {
             return this.productData.id
         }
+
+        toItemPage() {
+            router.push({name: 'productItem', params: {productId: this.productData.id + ""}})
+        }
+
     }
 </script>
 
@@ -58,6 +70,7 @@
             &-img {
                 width: 100%;
                 vertical-align: middle;
+                cursor: pointer;
             }
 
             &-mark {

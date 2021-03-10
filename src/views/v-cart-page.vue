@@ -1,9 +1,9 @@
 <template>
-    <div v-if="cartData.length" class="v-cart-page contentLeftMargin">
+    <div v-if="cartData.length" class="v-cart-page">
         <v-cart-item-container></v-cart-item-container>
         <v-checkout-btn></v-checkout-btn>
     </div>
-    <div v-else class="v-cart-page contentLeftMargin">
+    <div v-else class="v-cart-page">
         <div class="v-cart-page__empty-wrapper">
             <img class="v-cart-page__empty-img" src="@/assets/images/empty_cart.svg" alt="empty_cart">
             <h1 class="v-cart-page__empty-title">Cart is empty</h1>
@@ -32,6 +32,8 @@
 
 <style lang="scss">
     .v-cart-page {
+        margin-bottom: 60px;
+
         &__empty {
             &-wrapper {
                 width: 90%;

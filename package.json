@@ -57,7 +57,8 @@
       "camelcase": "off",
       "@typescript-eslint/ban-ts-ignore": "off",
       "@typescript-eslint/camelcase": "off",
-      "no-debugger": "off"
+      "no-debugger": "off",
+      "consistent-this": [2,"vm"]
     }
   },
   "browserslist": [
