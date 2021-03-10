@@ -15,7 +15,7 @@
   .product-card {
     flex-basis: 50%;
 
-    &__wrapper-btnBox{
+    &__wrapper-btnBox {
       display: block;
     }
   }
@@ -50,6 +50,25 @@
       margin: 0 auto;
       color: black;
       background-color: #ccc;
+    }
+  }
+  .v-product-item {
+    flex-direction: column;
+
+    &__img {
+      width: auto;
+    }
+
+    &__content {
+      width: auto;
+
+      &-title {
+        font-size: 30px;
+      }
+    }
+
+    &-btn {
+      background-color: #ccc !important;
     }
   }
 }

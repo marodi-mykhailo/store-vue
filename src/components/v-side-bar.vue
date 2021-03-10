@@ -19,17 +19,41 @@
                 <a @click="toggleDropdown" class="v-side-bar__list-link v-side-bar__dropdown-switch" href="#">Jeans <i
                         class="fa fa-caret-down"/></a>
                 <div v-if="dropdownIsVisible" class="v-side-bar__dropdown-box">
-                    <router-link class="v-side-bar__list-link" to="/Skinny">
-                        <i class="fa fa-caret-right v-side-bar__dropdown-icon margin-right"/> Skinny
+                    <router-link class="v-side-bar__list-link"
+                                 v-slot="{href, navigate, isActive}"
+                                 to="/Skinny">
+                        <a :href="href"
+                           @click="navigate"
+                           :class="[isActive && 'v-side-bar__list-link--active']">
+                            <i class="fa fa-caret-right v-side-bar__dropdown-icon margin-right"/>
+                            Skinny </a>
                     </router-link>
-                    <router-link class="v-side-bar__list-link" to="/Relaxed">
-                        <i class="fa fa-caret-right v-side-bar__dropdown-icon margin-right"/> Relaxed
+                    <router-link class="v-side-bar__list-link"
+                                 v-slot="{href, navigate, isActive}"
+                                 to="/Relaxed">
+                        <a :href="href"
+                           @click="navigate"
+                           :class="[isActive && 'v-side-bar__list-link--active']">
+                            <i class="fa fa-caret-right v-side-bar__dropdown-icon margin-right"/>
+                            Relaxed </a>
                     </router-link>
-                    <router-link class="v-side-bar__list-link" to="/Bootcut">
-                        <i class="fa fa-caret-right v-side-bar__dropdown-icon margin-right"/> Bootcut
+                    <router-link class="v-side-bar__list-link"
+                                 v-slot="{href, navigate, isActive}"
+                                 to="/Bootcut">
+                        <a :href="href"
+                           @click="navigate"
+                           :class="[isActive && 'v-side-bar__list-link--active']">
+                            <i class="fa fa-caret-right v-side-bar__dropdown-icon margin-right"/>
+                            Bootcut </a>
                     </router-link>
-                    <router-link class="v-side-bar__list-link" to="/Straight">
-                        <i class="fa fa-caret-right v-side-bar__dropdown-icon margin-right"/> Straight
+                    <router-link class="v-side-bar__list-link"
+                                 v-slot="{href, navigate, isActive}"
+                                 to="/Straight">
+                        <a :href="href"
+                           @click="navigate"
+                           :class="[isActive && 'v-side-bar__list-link--active']">
+                            <i class="fa fa-caret-right v-side-bar__dropdown-icon margin-right"/>
+                            Straight </a>
                     </router-link>
                 </div>
                 <router-link class="v-side-bar__list-link" to="Jackets">Jackets</router-link>
@@ -41,7 +65,7 @@
                          to="/Contact">Contact
             </router-link>
             <div class="v-side-bar__list-link color-black"
-                         @click="toggleModal">Newsletter
+                 @click="toggleModal">Newsletter
             </div>
             <router-link class="v-side-bar__list-link color-black"
                          to="/Subscribe">Subscribe
@@ -115,9 +139,16 @@
 
                 &:hover {
                     color: $black;
+
+                    .v-side-bar__dropdown-icon {
+                        display: inline;
+                    }
+                }
+
+                &--active {
+                    color: $black;
                     background-color: $nav_item_bg_color;
                     transition: all .5s;
-
 
                     .v-side-bar__dropdown-icon {
                         display: inline;
@@ -162,4 +193,5 @@
         background-color: rgba(0, 0, 0, 0.5);
         z-index: 2;
     }
+
 </style>

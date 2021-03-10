@@ -53,10 +53,8 @@
             background-color: white;
             animation: zoomIn .6s;
 
-
             &__content {
                 padding: 0 $padding;
-
 
             }
         }
