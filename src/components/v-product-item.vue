@@ -1,21 +1,39 @@
 <template>
-    <div class="v-product-item">
-        <img class="v-product-item__img"
-             :src=productData.image
-             alt="product-item"/>
-        <div class="v-product-item__content">
-            <div class="v-product-item__content-title">{{productData.productName}}</div>
-            <div class="v-product-item__content-price">{{productData.price}}</div>
-            <p class="v-product-item__content-description">{{productData.description}}</p>
-            <button @click="addToCart"
-                    class="button v-product-item-btn"
-                    :class="{'success-btn': isAddedToCart}"
-                    :disabled="isAddedToCart"
-            >
-                {{ isAddedToCart ? "Added" : "Add to cart"}}
-            </button>
+    <div>
+        <div class="v-product-item">
+            <img class="v-product-item__img"
+                 :src=productData.image
+                 alt="product-item"
+                 @click="toggleImg"
+            />
+            <div class="v-product-item__content">
+                <div class="v-product-item__content-title">{{productData.productName}}</div>
+                <div class="v-product-item__content-price">{{productData.price}}</div>
+                <p class="v-product-item__content-description">{{productData.description}}</p>
+                <button @click="addToCart"
+                        class="button v-product-item-btn"
+                        :class="{'success-btn': isAddedToCart}"
+                        :disabled="isAddedToCart"
+                >
+                    {{ isAddedToCart ? "Added" : "Add to cart"}}
+                </button>
+            </div>
+
+        </div>
+        <div v-show="isOpen">
+            <img class="v-product-item__img--large"
+                 :src=productData.image
+                 alt="product-item-large"
+                 @click="toggleImg"
+            />
+            <div class="overlay"
+                 :class="{'d-block': isOpen}"
+                 @click="toggleImg"
+            ></div>
+
         </div>
     </div>
+
 </template>
 
 <script lang="ts">
@@ -27,10 +45,20 @@
         @Prop() readonly productData!: ProductItemType
         @Prop() readonly isAddedToCart!: boolean
 
+        isOpen = false
+
 
         @Emit()
         addToCart() {
             return this.productData.id
+        }
+
+        toggleImg() {
+            if (this.isOpen) {
+                this.isOpen = false
+            } else {
+                this.isOpen = true
+            }
         }
 
 
@@ -46,6 +74,18 @@
             width: 30%;
             height: 400px;
             filter: grayscale(75%);
+            cursor: pointer;
+
+            &--large {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-right: -50%;
+                transform: translate(-50%, -50%);
+                filter: grayscale(75%);
+                z-index: 3;
+                cursor: pointer;
+            }
         }
 
         &__content {
@@ -74,6 +114,7 @@
             width: 80%;
             display: block !important;
             margin: 20px auto 0;
+            font-size: 18px;
         }
 
         .success-btn {
@@ -82,5 +123,7 @@
             color: white;
             transition: all .7s;
         }
+
+
     }
 </style>
