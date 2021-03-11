@@ -34,7 +34,7 @@
 <style lang="scss">
     .v-modal {
         z-index: 3;
-        padding-top: 100px;
+        padding: 100px 10px 0;
         position: fixed;
         left: 0;
         top: 0;
@@ -47,7 +47,7 @@
         &__inner {
             padding: $padding*2;
             position: relative;
-            width: 900px;
+            max-width: 900px;
             margin: auto;
             text-align: center;
             background-color: white;

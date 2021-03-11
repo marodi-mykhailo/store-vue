@@ -115,7 +115,7 @@
 
             &-price {
                 padding: $cart-item-content_padding;
-                font-size: 18px;
+                font-size: $nav_font_size;
             }
         }
 
@@ -130,7 +130,7 @@
             }
 
             &-num {
-                font-size: 18px;
+                font-size: $nav_font_size;
                 padding: 0 $cart-item-content_padding;
             }
 
@@ -154,7 +154,7 @@
             &-num {
                 padding-left: $cart-item-content_padding;
                 color: green;
-                font-size: 18px;
+                font-size: $nav_font_size;
             }
         }
 
@@ -163,7 +163,7 @@
             padding: $cart-item-content_padding;
             margin: 0 10px;
             text-align: center;
-            font-size: 18px;
+            font-size: $nav_font_size;
         }
     }
 

@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-    import VCartItem from "@/components/v-cart-item.vue";
+    import VCartItem from "@/components/cart/v-cart-item.vue";
     import {ProductDataForCartType} from "@/store/types";
     import {Vue, Component} from "vue-property-decorator";
     import {Action, Getter} from "vuex-class";

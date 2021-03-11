@@ -12,9 +12,9 @@
 </template>
 
 <script lang="ts">
-    import VCartItemContainer from "@/components/v-cart-item-container.vue";
+    import VCartItemContainer from "@/components/cart/v-cart-item-container.vue";
     import {Vue, Component} from "vue-property-decorator";
-    import VCheckoutBtn from "@/components/v-checkout-btn.vue";
+    import VCheckoutBtn from "@/components/cart/v-checkout-btn.vue";
     import {Getter} from "vuex-class";
     import {CartStateType} from "@/store/modules/cart";
 

@@ -7,7 +7,7 @@
 
 <script lang="ts">
     import vTopImage from '../components/v-top-image.vue';
-    import vProducts from '../components/v-products.vue';
+    import vProducts from '../components/product/v-products.vue';
     import {Vue, Component} from "vue-property-decorator";
 
     @Component({

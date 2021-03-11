@@ -10,7 +10,7 @@
     import {Vue, Component} from "vue-property-decorator";
 
     @Component
-    export default class VNotFound extends Vue {
+    export default class VNotFoundPage extends Vue {
 
     }
 </script>

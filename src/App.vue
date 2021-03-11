@@ -33,7 +33,7 @@
     import vHeader from "@/components/v-header.vue";
     import {Vue, Component} from "vue-property-decorator";
     import {Action, Getter} from "vuex-class";
-    import VMobileHeader from "@/components/v-mobile-header.vue";
+    import VMobileHeader from "@/components/mobile/v-mobile-header.vue";
     import VSubscribe from "@/components/v-subscribe.vue";
     import VFooter from "@/components/v-footer.vue";
     import VModal from "@/components/v-modal.vue";
@@ -73,9 +73,7 @@
     }
 
 
-    // todo:пофіксити сіде бар,
     // todo:поправити струкртуру
-    // todo: зробити not find
 </script>
 
 <style lang="scss">

@@ -3,7 +3,7 @@ import vCartPage from "@/views/v-cart-page.vue";
 import VueRouter from "vue-router";
 import Vue from "vue";
 import VProductItemPage from "@/views/v-product-item-page.vue";
-import VNotFound from "@/components/v-not-found.vue";
+import VNotFoundPage from "@/views/v-not-found-page.vue";
 
 const routes = [
     {
@@ -26,7 +26,7 @@ const routes = [
     {
         path: '/:catchAll(.*)',
         name: 'NotFound',
-        component: VNotFound
+        component: VNotFoundPage
     },
 
 ];

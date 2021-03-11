@@ -6,7 +6,7 @@
 
 <script lang="ts">
     import {Vue, Component} from "vue-property-decorator";
-    import VProductItemContainer from "../components/v-product-item-container.vue";
+    import VProductItemContainer from "../components/product/v-product-item-container.vue";
 
     @Component({
         components: {

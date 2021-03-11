@@ -8,7 +8,7 @@
 
 <script lang="ts">
     import {Vue, Component} from "vue-property-decorator";
-    import VProductItem from "@/components/v-product-item.vue";
+    import VProductItem from "@/components/product/v-product-item.vue";
     import {Action, Getter} from "vuex-class";
     import {CartProductType, ProductDataForCartType, ProductItemType} from "@/store/types";
     import {CartStateType} from "@/store/modules/cart";
