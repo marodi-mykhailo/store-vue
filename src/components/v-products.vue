@@ -1,10 +1,14 @@
 <template>
     <div class="v-products">
         <div class="v-products__top">
-            <p class="v-products__top-count">{{cardInfo.length}} items</p>
+            <p class="v-products__top-count">{{list.length}} items</p>
+            <v-pagination :item-per-page="8"
+                          :data="cardInfo"
+                          @getList="getList"
+            ></v-pagination>
         </div>
         <div class="v-products__list">
-            <v-product-card v-for="item in cardInfo"
+            <v-product-card v-for="item in list"
                             :key="item.id"
                             :product-data="item"
                             @add-to-cart="addToCart"
@@ -20,9 +24,11 @@
     import {Vue, Component} from "vue-property-decorator";
     import {Action, Getter} from "vuex-class";
     import {CartStateType} from "@/store/modules/cart";
+    import VPagination from "@/components/v-pagination.vue";
 
     @Component({
         components: {
+            VPagination,
             vProductCard
         }
     })
@@ -31,19 +37,26 @@
         @Getter("product/getDataForCard") cardInfo!: ProductDataType[]
         @Getter("cart/getCartData") cartData!: CartStateType
 
-        // todo: ask why i must use ! and how to delete undefined from types ////
         @Action("cart/setToCart") setToCart!: (product: ProductDataForCartType | undefined) => void
 
+        list: ProductDataType[] = [];
 
         addToCart(id: number) {
             const product = this.cartItemInfo.find((item: ProductDataForCartType) => item.id === id)
             this.setToCart(product)
         }
 
+
+        getList(data: ProductDataType[]) {
+            this.list = data
+        }
+
+
         isAddedToCart(id: number) {
             const product = this.cartData?.find((item: CartProductType) => item.id === id)
             return !!product
         }
+
     }
 </script>
 
@@ -54,6 +67,8 @@
             padding: 0 $padding;
             margin: 15px 0;
             color: $nav_grey;
+            display: flex;
+            justify-content: space-between;
 
             &-count {
 

@@ -75,7 +75,7 @@
 
     // todo:пофіксити сіде бар,
     // todo:поправити струкртуру
-    // todo: добавити пагінацію
+    // todo: зробити not find
 </script>
 
 <style lang="scss">
