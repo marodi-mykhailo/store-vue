@@ -1,4 +1,5 @@
 module.exports = {
+  publicPath: "https://marodi-mykhailo.github.io/store-vue/",
   runtimeCompiler: true,
   css: {
     loaderOptions: {

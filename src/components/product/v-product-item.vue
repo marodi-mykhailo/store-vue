@@ -2,7 +2,7 @@
     <div>
         <div class="v-product-item">
             <img class="v-product-item__img"
-                 :src=productData.image
+                 :src="productData.image"
                  alt="product-item"
                  @click="toggleImg"
             />
@@ -22,7 +22,7 @@
         </div>
         <div v-show="isOpen">
             <img class="v-product-item__img--large"
-                 :src=productData.image
+                 :src="productData.image"
                  alt="product-item-large"
                  @click="toggleImg"
             />
@@ -54,14 +54,8 @@
         }
 
         toggleImg() {
-            if (this.isOpen) {
-                this.isOpen = false
-            } else {
-                this.isOpen = true
-            }
+            this.isOpen = !this.isOpen;
         }
-
-
     }
 </script>
 

@@ -7,6 +7,7 @@
 <script lang="ts">
     import {Vue, Component} from "vue-property-decorator";
     import VProductItemContainer from "../components/product/v-product-item-container.vue";
+    import {Action} from "vuex-class";
 
     @Component({
         components: {
@@ -19,7 +20,7 @@
 </script>
 
 <style lang="scss">
-.v-product-item-page{
-    margin-bottom: 60px;
-}
+    .v-product-item-page {
+        margin-bottom: 60px;
+    }
 </style>
