@@ -65,15 +65,9 @@
                     setMobile()
                 }
             })
-            // @ts-ignore
-            window.store = this.$store.state
         }
-
-
     }
 
-
-    // todo:поправити струкртуру
 </script>
 
 <style lang="scss">

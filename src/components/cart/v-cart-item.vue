@@ -67,7 +67,7 @@
 
 
         toItemPage() {
-            router.push({name: 'productItem', params: {productId: this.itemData.id + ""}})
+            router.push({name: 'productItem', params: {productId: this.itemData.id.toString()}})
         }
 
         get sum() {

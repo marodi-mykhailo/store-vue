@@ -41,7 +41,7 @@
         }
 
         toItemPage() {
-            router.push({name: 'productItem', params: {productId: this.productData.id + ""}})
+            router.push({name: 'productItem', params: {productId: this.productData.id.toString()}})
         }
 
     }
