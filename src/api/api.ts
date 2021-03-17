@@ -1,7 +1,11 @@
 import axios from "axios";
 import {ProductType} from "@/store/types";
 
-const settings = {}
+const settings = {
+    header: {
+        "Access-Control-Allow-Origin": "*"
+    }
+}
 
 const instance = axios.create({
     baseURL: 'http://www.mocky.io/v2/',
