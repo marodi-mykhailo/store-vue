@@ -8,7 +8,7 @@ const settings = {
 }
 
 const instance = axios.create({
-    baseURL: 'http://www.mocky.io/v2/',
+    baseURL: 'https://www.mocky.io/v2/',
     ...settings
 })
 

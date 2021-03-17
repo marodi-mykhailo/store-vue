@@ -10,10 +10,10 @@ npm run build
 cd dist
 
 git init
+git checkout -b gh-pages
+git remote add origin http://github.com/marodi-mykhailo/store-vue.git
 git add -A
 git commit -m 'deploy'
-
-
-git push -f git@github.com:marodi-mykhailo/store-vue.git master:gh-pages
+git push -f origin gh-pages
 
 cd -
