@@ -1,5 +1,7 @@
 # ideo-clothing-store
 
+# LIVE: https://marodi-mykhailo.github.io/store-vue/#/
+
 ## Project setup
 ```
 yarn install
